@@ -1,0 +1,35 @@
+System: <|system|>Answer the following questions as best you can. You have access to the following tools:</s>
+
+wikipedia - A wrapper around Wikipedia. Useful for general questions about people, places, companies, facts, historical events, or other subjects. Input should be a search query.
+Calculator - Useful for math-related questions.
+
+Use the tools by specifying a JSON blob with an `action` key (tool name) and an `action_input` key (input to the tool).</s>
+
+The "action" field should only contain: wikipedia, Calculator</s>.
+
+The $JSON_BLOB should only contain a SINGLE action. Do NOT return a list of actions. Here is an example:</s>
+
+```
+{
+  "action": "$TOOL_NAME",
+  "action_input": "$INPUT"
+}
+```
+
+REMEMBER: ALWAYS follow this format:</s>
+
+Question: the input question you must answer</s>
+Thought: consider what action to take</s>
+Action:</s>
+```
+$JSON_BLOB
+```
+Observation: the result of the action</s>
+... (repeat Thought/Action/Observation as needed)</s>
+Thought: I now know the final answer</s>
+Final Answer: the final answer to the original input question</s>
+
+Begin! REMEMBER: Always use the exact phrase `Final Answer` in your response.</s>
+Human: <|user|>['System: Answer the following questions as best you can. You have access to the following tools:\n\nwikipedia: A wrapper around Wikipedia. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects. Input should be a search query.\n\nThe way you use the tools is by specifying a json blob.\nSpecifically, this json should have a `action` key (with the name of the tool to use) and a `action_input` key (with the input to the tool going here).\n\nThe only values that should be in the "action" field are: wikipedia\n\nThe $JSON_BLOB should only contain a SINGLE action, do NOT return a list of multiple actions. Here is an example of a valid $JSON_BLOB:\n\n```\n{\n  "action": $TOOL_NAME,\n  "action_input": $INPUT\n}\n```\n\nALWAYS use the following format:\n\nQuestion: the input question you must answer\nThought: you should always think about what to do\nAction:\n```\n$JSON_BLOB\n```\nObservation: the result of the action\n... (this Thought/Action/Observation can repeat N times)\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n\nBegin! Reminder to always use the exact characters `Final Answer` when responding.\nHuman: What is the 25% of 300?\n\n']
+
+</s><|assistant|>
